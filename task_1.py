@@ -13,8 +13,8 @@ while f_string:
     if f_string:
         f_list.append(f_string)
 
-with open(f_name, FILE_MODE) as f_obj:
+with open(f_name, 'a') as f_obj:
     for line in f_list:
-        f_obj.write(line)
+        f_obj.write(line + '\n')
 
 print(f'Текст сохранен в файле {f_name}')
