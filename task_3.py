@@ -32,4 +32,7 @@ for emp in employees:
     if emp[GROSS_VALUE] < GROSS_MIN:
         print(f'Сотрудник {emp[EMP_NAME]} имеет оклад {emp[GROSS_VALUE]}')
 
+middle_gross = total_money / len(employees)
+
 print('---')
+print(f'Средняя величина дохода сотрудников {round(middle_gross, 2)}')
