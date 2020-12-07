@@ -18,3 +18,10 @@ with open(f_name, APPEND_MODE) as f_obj:
     for i in range(DIGIT_COUNT):
         digit = randint(RAND_FROM, RAND_TO)
         f_obj.write(f'{digit} ')
+
+with open(f_name, READ_MODE) as f_obj:
+    for line in f_obj:
+        digits = line.split()
+
+digits_sum = sum(map(int, digits))
+print(f'Сумма чисел в файле {f_name} равна {digits_sum}.')
