@@ -9,10 +9,13 @@ Four — 4
 должен записываться в новый текстовый файл.
 """
 
-FILE_MODE = 'r'
+READ_MODE = 'r'
+APPEND_MODE = 'a'
+DIGIT_POS = 2
 
-f_name = 'task_4.txt'
-f_out = 'task_4.out'
+file_in = 'task_4.txt'
+file_out = 'task_4.out'
+
 digits = {
     '1': 'Один',
     '2': 'Два',
@@ -26,6 +29,11 @@ digits = {
     '0': 'Ноль'
 }
 
-with open(f_name, FILE_MODE) as f_obj:
-    for line in f_obj:
-        print(line.split())
+with open(file_out, APPEND_MODE) as f_out_obj:
+
+    with open(file_in, READ_MODE) as f_in_obj:
+        for line in f_in_obj:
+            eng_digit, separator, digit = line.split()
+            out_line = f'{digits[digit]} {separator} {digit}'
+
+            f_out_obj.write(out_line + '\n')
