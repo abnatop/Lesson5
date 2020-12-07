@@ -11,7 +11,6 @@ Four — 4
 
 READ_MODE = 'r'
 APPEND_MODE = 'a'
-DIGIT_POS = 2
 
 file_in = 'task_4.txt'
 file_out = 'task_4.out'
