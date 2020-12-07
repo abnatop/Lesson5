@@ -14,3 +14,18 @@
 [{ "firm_1" : 5000 , "firm_2" : 3000 , "firm_3" : 1000 }, { "average_profit" : 2000 }]
 Подсказка: использовать менеджер контекста.
 """
+
+READ_MODE = 'r'
+APPEND_MODE = 'a'
+
+f_name = 'task_7.txt'
+firms_data = {}
+
+with open(f_name, READ_MODE) as f_obj:
+    for line in f_obj:
+        firm_name, firm_type, firm_gross, firm_total = line.split()
+        firm_gross, firm_total = float(firm_gross), float(firm_total)
+
+        firms_data[firm_name] = firm_gross - firm_total
+
+print(firms_data)
