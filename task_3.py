@@ -1,13 +1,6 @@
 """
 Создать текстовый файл (не программно), построчно записать фамилии сотрудников и
 величину их окладов (не менее 10 строк). Определить, кто из сотрудников имеет оклад менее
-© geekbrains.ru 23
-[ 'C:\\Users\\Администратор\\Desktop' , 'C:\\Users' , 'C:\\Python37\\python37.zip' ,
-'C:\\Python37\\DLLs' , 'C:\\Python37\\lib' , 'C:\\Python37' ,
-'C:\\Python37\\lib\\site-packages' ]
-import sys
-print(sys.platform)
-win32
 20 тыс., вывести фамилии этих сотрудников. Выполнить подсчет средней величины дохода
 сотрудников.
 Пример файла:
@@ -15,3 +8,28 @@ win32
 Петров 13749.32
 """
 
+EMP_NAME = 'name'
+GROSS_VALUE = 'gross'
+GROSS_MIN = 20000.0
+
+FILE_MODE = 'r'
+
+f_name = 'task_3.txt'
+
+employees = []
+total_money = 0.0
+
+with open(f_name, FILE_MODE) as f_obj:
+    for line in f_obj:
+        emp_name, emp_gross = line.split()
+
+        employee = {EMP_NAME: emp_name, GROSS_VALUE: float(emp_gross)}
+        employees.append(employee)
+
+        total_money += employee[GROSS_VALUE]
+
+for emp in employees:
+    if emp[GROSS_VALUE] < GROSS_MIN:
+        print(f'Сотрудник {emp[EMP_NAME]} имеет оклад {emp[GROSS_VALUE]}')
+
+print('---')
