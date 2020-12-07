@@ -25,7 +25,12 @@ with open(f_name, READ_MODE) as f_obj:
     for line in f_obj:
         firm_name, firm_type, firm_gross, firm_total = line.split()
         firm_gross, firm_total = float(firm_gross), float(firm_total)
-
         firms_data[firm_name] = firm_gross - firm_total
 
-print(firms_data)
+total_profit = 0.0
+for value in firms_data.values():
+    if value > 0:
+        total_profit += value
+average_profit = total_profit / len(firms_data)
+
+print(total_profit, average_profit)
