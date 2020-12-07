@@ -1,6 +1,7 @@
 # program data
 task_1.txt
 task_5.txt
+*.json
 *.out
 
 # Byte-compiled / optimized / DLL files

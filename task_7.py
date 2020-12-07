@@ -15,10 +15,14 @@
 Подсказка: использовать менеджер контекста.
 """
 
+import json
+
 READ_MODE = 'r'
 APPEND_MODE = 'a'
 
 f_name = 'task_7.txt'
+json_name = 'task_7.json'
+
 firms_data = {}
 
 with open(f_name, READ_MODE) as f_obj:
@@ -33,4 +37,6 @@ for value in firms_data.values():
         total_profit += value
 average_profit = total_profit / len(firms_data)
 
-print(total_profit, average_profit)
+with open(json_name, APPEND_MODE) as write_json:
+    json_data = [firms_data, {'average_profit': average_profit}]
+    json.dump(json_data, write_json)
