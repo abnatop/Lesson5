@@ -9,3 +9,28 @@
 Физкультура: — 30(пр) —
 Пример словаря: {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
 """
+
+READ_MODE = 'r'
+
+f_name = 'task_6.txt'
+shedule = {}
+
+def total_hours(value):
+    markups = [
+        '#',
+        '(л)',
+        '(пр)',
+        '(лаб)'
+    ]
+    for seq in markups:
+        value = value.replace(seq, '')
+
+    all_hours = map(int, value.split())
+    return sum(all_hours)
+
+with open(f_name, READ_MODE) as f_obj:
+    for line in f_obj:
+        name, hours = line.split(':')
+        shedule[name] = total_hours(hours)
+
+print(shedule)
