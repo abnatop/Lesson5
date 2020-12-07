@@ -1,5 +1,6 @@
 # program data
 task_1.txt
+task_5.txt
 *.out
 
 # Byte-compiled / optimized / DLL files
